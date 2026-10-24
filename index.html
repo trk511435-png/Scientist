@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قانون الجر الهوائي غير المقاوم - سالم صالح الكعبي</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #06b6d4;
+            --bg-body: #090d16;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.2) 0%, rgba(6,182,212,0.1) 100%);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .author-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #93c5fd;
+            font-size: 1.1rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .equation-box {
+            background: rgba(15, 23, 42, 0.9);
+            border-right: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: #60a5fa;
+            margin: 20px 0;
+            direction: ltr;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Calculator Styles */
+        .calculator {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--primary);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section -->
+    <header>
+        <h1>قانون الجر الهوائي غير المقاوم</h1>
+        <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 20px;">Non-Resistive Air Entrainment Law</p>
+        <div class="author-badge">المفكر والباحث: سالم صالح الكعبي</div>
+    </header>
+
+    <!-- Overview Section -->
+    <section>
+        <h2>الملخص العلمي للقانون</h2>
+        <p>ينص <strong>قانون الجر الهوائي غير المقاوم</strong> على أن استجابة الوسط الهوائي المحيط للتدفقات السريعة لا تقتصر على تقديم المقاومة أو الارتداد المعاكس المعتاد، بل تمتد لتتفاعل إيجابياً من خلال سحب وجر الكتل الهوائية المجورة وتوجيهها في نفس اتجاه التدفق الأساسي، مما يضخم الكتلة الهوائية المتحركة ويحافظ على الاستمرارية الديناميكية.</p>
+    </section>
+
+    <!-- Mathematical Formula Section -->
+    <section>
+        <h2>الصياغة الرياضية والمعادلات</h2>
+        <p>تم تمثيل هذا القانون رياضياً بالمعادلة التالية:</p>
+
+        <div class="equation-box">
+            V<sub>total</sub> = V<sub>main</sub> × (1 + k × A)
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>V<sub>main</sub></h3>
+                <p>السرعة الابتدائية لتيار الهواء المندفع مباشرة من المصدر (متر/ثانية).</p>
+            </div>
+            <div class="card">
+                <h3>A</h3>
+                <p>مساحة مقطع الفتحة أو التدفق الابتدائي (متر مربع m²).</p>
+            </div>
+            <div class="card">
+                <h3>k</h3>
+                <p>ثابت الجر والتفاعل الهوائي الخاص بالبيئة والوسط المحيط.</p>
+            </div>
+            <div class="card">
+                <h3>V<sub>total</sub></h3>
+                <p>السرعة الإجمالية للهواء بعد اكتمال سحب وجر الهواء المجاور.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experimental Steps & Data Section -->
+    <section>
+        <h2>التجربة العملية والبيانات المسجلة</h2>
+        <p>لإثبات وتطبيق القانون عملياً، قمنا بإجراء تجربة حية على مرحلتين باستخدام الخيط التجريبي وعينات حركة الهواء:</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>المرحلة الأولى: النفخ المباشر</h3>
+                <ul>
+                    <li><strong>طول الخيط (L):</strong> 12 سم (0.12 متر)</li>
+                    <li><strong>زاوية الانحراف (&theta;):</strong> 40 درجة</li>
+                    <li><strong>مسافة الحركة (d):</strong> 7.7 سم (0.077 متر)</li>
+                    <li><strong>زمن الحركة (t):</strong> 0.25 ثانية</li>
+                    <li><strong>السرعة الابتدائية المحسوبة (V<sub>main</sub>):</strong> 0.31 متر/ثانية</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>المرحلة الثانية: مسافة 0.5 متر (19.7 بوصة)</h3>
+                <ul>
+                    <li><strong>المسافة من المصدر:</strong> 50 سم (19.69 بوصة)</li>
+                    <li><strong>زاوية الانحراف (&theta;):</strong> 15 درجة</li>
+                    <li><strong>مسافة الحركة (d):</strong> 3.1 سم (0.031 متر)</li>
+                    <li><strong>زمن الحركة (t):</strong> 0.35 ثانية</li>
+                    <li><strong>السرعة الكلية عند الخيط (V<sub>total</sub>):</strong> 0.089 متر/ثانية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section>
+        <h2>التطبيقات العملية والأهمية في الحياة</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1. هندسة الطيران والديناميكا</h3>
+                <p>يساعد في فهم آلية توليد قوة الرفع وخفض سحب الهواء خلف الأجسام المتحركة بسرعة لتطوير كفاءة الطائرات والمسيّرات.</p>
+            </div>
+            <div class="card">
+                <h3>2. أنظمة التهوية والمراوح الذكية</h3>
+                <p>يعتمد المبدأ في تصاميم المراوح الحديثة بدون ريش (Dyson Fans) ومكيفات الهواء لتعظيم وتضاعف تدفق الهواء عبر الغرف.</p>
+            </div>
+            <div class="card">
+                <h3>3. تقليل استهلاك الوقود للسيارات</h3>
+                <p>يستغل المتسابقون والشاحنات على الطرق السريعة ظاهرة الهواء المجرور (Drafting) لتقليل المقاومة وتوفير الطاقة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator Section -->
+    <section>
+        <h2>حاسبة التنبؤ بالقانون (تفاعلية)</h2>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="v_main">السرعة الابتدائية V<sub>main</sub> (متر/ثانية):</label>
+                <input type="number" id="v_main" value="0.31" step="0.01">
+            </div>
+            <div class="input-group">
+                <label for="area">مساحة الفتحة A (متر مربع m²):</label>
+                <input type="number" id="area" value="0.0000785" step="0.00001">
+            </div>
+            <div class="input-group">
+                <label for="k_val">ثابت الجر k:</label>
+                <input type="number" id="k_val" value="-9074.61" step="0.1">
+            </div>
+            <button onclick="calculateVTotal()">احسب السرعة الكلية V<sub>total</sub></button>
+            <div class="result" id="calc_result">السرعة الكلية المتوقعة: 0.089 متر/ثانية</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - ورقة وثائقية علمية | ابتكار وصياغة: سالم صالح الكعبي</p>
+    </footer>
+
+</div>
+
+<script>
+    function calculateVTotal() {
+        const vMain = parseFloat(document.getElementById('v_main').value);
+        const area = parseFloat(document.getElementById('area').value);
+        const k = parseFloat(document.getElementById('k_val').value);
+
+        if (isNaN(vMain) || isNaN(area) || isNaN(k)) {
+            document.getElementById('calc_result').innerText = "يرجى إدخال أرقام صحيحة في جميع الحقول.";
+            return;
+        }
+
+        const vTotal = vMain * (1 + (k * area));
+        document.getElementById('calc_result').innerText = `السرعة الكلية المتوقعة (Vtotal): ${vTotal.toFixed(4)} متر/ثانية`;
+    }
+</script>
+
+</body>
+</html>
